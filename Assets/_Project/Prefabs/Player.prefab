@@ -3427,6 +3427,7 @@ GameObject:
   - component: {fileID: 2542564022865608106}
   - component: {fileID: 1889208205125456973}
   - component: {fileID: 1074070495480601591}
+  - component: {fileID: 4842832454447750344}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3503,7 +3504,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &183567809320166927
 CapsuleCollider:
@@ -3590,6 +3591,25 @@ MonoBehaviour:
   upperLimit: -40
   bottomLimit: 70
   mouseSensitivity: 21.9
+--- !u!114 &4842832454447750344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936467297906906005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07658aca41ab397428d52ab5613416f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 3997595748609602524}
+  minDistance: 0.75
+  maxDistance: 2
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  detectInterval: 0.1
 --- !u!1 &8941257335091788204
 GameObject:
   m_ObjectHideFlags: 0

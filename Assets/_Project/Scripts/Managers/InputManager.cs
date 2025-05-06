@@ -12,11 +12,13 @@ namespace Flat.Managers
         public bool Run { get; private set; }
         public Vector2 Look { get; private set; }
         public bool Crouch { get; private set; }
+        public bool Interact { get; private set; }
 
         private InputAction moveAction;
         private InputAction runAction;
         private InputAction lookAction;
         private InputAction crouchAction;
+        private InputAction interactAction;
 
         private void Awake()
         {
@@ -31,6 +33,7 @@ namespace Flat.Managers
             runAction = currentMap.FindAction("Sprint");
             lookAction = currentMap.FindAction("Look");
             crouchAction = currentMap.FindAction("Crouch");
+            interactAction = currentMap.FindAction("Interact");
 
             RegisterInputCallbacks();
         }
@@ -59,6 +62,9 @@ namespace Flat.Managers
 
             crouchAction.started += OnCrouch;
             crouchAction.canceled += OnCrouch;
+
+            interactAction.started += OnInteract;
+            interactAction.canceled += OnInteract;
         }
 
         private void UnregisterInputCallbacks()
@@ -74,6 +80,9 @@ namespace Flat.Managers
 
             crouchAction.started -= OnCrouch;
             crouchAction.canceled -= OnCrouch;
+
+            interactAction.started -= OnInteract;
+            interactAction.canceled -= OnInteract;
         }
 
         private void HideCursor()
@@ -100,6 +109,11 @@ namespace Flat.Managers
         private void OnCrouch(InputAction.CallbackContext context)
         {
             Crouch = context.ReadValueAsButton();
+        }
+
+        private void OnInteract(InputAction.CallbackContext context)
+        {
+            Interact = context.ReadValueAsButton();
         }
     }
 }
