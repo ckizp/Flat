@@ -39,12 +39,6 @@ namespace Flat.Gameplay.Characters
             inputManager = GetComponent<InputManager>();
         }
 
-        private void Start()
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-
         private void FixedUpdate()
         {
             HandleMovement();
