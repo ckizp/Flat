@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bda0106c17dfce4ab1856f21ef8b0a7, type: 3}
+  m_Name: Flashlight
+  m_EditorClassIdentifier: 
+  itemName: Flashlight
+  icon: {fileID: 21300000, guid: 814c5e73123e03246b5d92fdb3ec8808, type: 3}
+  prefab: {fileID: 7014078231855972907, guid: ed4e625a918d6524a95488f75ff318b2, type: 3}

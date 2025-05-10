@@ -31,6 +31,7 @@ namespace Flat.Gameplay.Interaction
 
         private float interactionHoldTime;
         private bool isHolding;
+        private bool hasInteracted;
 
         private void Awake()
         {
@@ -116,7 +117,15 @@ namespace Flat.Gameplay.Interaction
                 case InteractionType.Instant:
                     if (inputManager.Interact)
                     {
-                        ExecuteInteraction(currentFocus);
+                        if (!hasInteracted) // Only interact if we haven't already
+                        {
+                            ExecuteInteraction(currentFocus);
+                            hasInteracted = true; // Mark as interacted
+                        }
+                    }
+                    else
+                    {
+                        hasInteracted = false; // Reset when button is released
                     }
                     break;
                 case InteractionType.Hold:
