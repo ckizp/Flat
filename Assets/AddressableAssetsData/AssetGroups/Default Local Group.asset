@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: bae935908daa01b409b16fe161e5a646
+  m_SerializeEntries:
+  - m_GUID: 099bfe94398558a48af25ebfe44aa5d2
+    m_Address: Assets/_Project/Data/Objectives/Act1/Objective_RestoreLights.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Act1
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 315f0aa5054c0994d815a773cd5be481, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cbd0803bdb6799948a6c4d392b30e518, type: 2}
+    - {fileID: 11400000, guid: 782880b18f527044383f7f4a682288fd, type: 2}

@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace Flat.Gameplay.Interaction.Implementations
 {
-    public class Door : BaseInteractable
+    public class SimpleOpenableObject : BaseInteractable
     {
+        [Header("Door Properties")]
         [SerializeField] private Animator animator;
         [SerializeField] private string openingAnimationName;
         [SerializeField] private string closingAnimationName;

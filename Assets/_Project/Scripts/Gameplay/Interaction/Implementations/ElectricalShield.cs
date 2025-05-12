@@ -1,14 +1,19 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Flat.Gameplay.Interaction.Implementations
 {
     public class ElectricalShield : BaseInteractable
     {
+        [Header("Visual Elements")]
         [SerializeField] private Animator animator;
         [SerializeField] private Animator powerAnimator;
         [SerializeField] private GameObject redPointLight;
         [SerializeField] private GameObject greenPointLight;
+
+        [Header("Breaker Properties")]
+        [SerializeField] private List<GameObject> powerObjects = new List<GameObject>();
 
         public bool isTurning { get; private set; }
 
@@ -30,7 +35,15 @@ namespace Flat.Gameplay.Interaction.Implementations
             powerAnimator.Play("PowerOn");
             redPointLight.SetActive(false);
             greenPointLight.SetActive(true);
+            foreach (GameObject obj in powerObjects)
+            {
+                if (obj != null)
+                {
+                    obj.SetActive(true);
+                }
+            }
             isTurning = true;
+            TriggerInteraction("breaker_activate");
             yield return new WaitForSeconds(.5f);
         }
 
@@ -40,6 +53,13 @@ namespace Flat.Gameplay.Interaction.Implementations
             powerAnimator.Play("PowerOff");
             redPointLight.SetActive(true);
             greenPointLight.SetActive(false);
+            foreach (GameObject obj in powerObjects)
+            {
+                if (obj != null)
+                {
+                    obj.SetActive(false);
+                }
+            }
             isTurning = false;
             yield return new WaitForSeconds(.5f);
         }

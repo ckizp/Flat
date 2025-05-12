@@ -78,7 +78,7 @@ namespace Flat.Gameplay.Characters
             xRotation = Mathf.Clamp(xRotation, upperLimit, bottomLimit);
 
             cameraTransform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-            transform.Rotate(Vector3.up, Mouse_X * mouseSensitivity * Time.deltaTime);
+            playerRigidBody.MoveRotation(playerRigidBody.rotation * Quaternion.Euler(0, Mouse_X * mouseSensitivity * Time.deltaTime, 0));
         }
 
         private void HandleCrouch() => animator.SetBool(crouchHash, inputManager.Crouch);

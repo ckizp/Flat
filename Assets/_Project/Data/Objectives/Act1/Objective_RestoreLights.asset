@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1d719247d3e3c4bbd63f841bd4c2d3, type: 3}
+  m_Name: Objective_RestoreLights
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: Objective_RestoreLights
+  displayName: When Light Fades
+  objectiveStepPrefabs:
+  - {fileID: 8578305621056405550, guid: 7cdcccdcba4d06b43b70a8d5ff5549c2, type: 3}
+  - {fileID: 3863860278624485804, guid: 416548b233eaa7d43b08b2c05c0ccb73, type: 3}
+  - {fileID: 7939606424067330243, guid: 8ffa3da562b66f94294b13adb8b95901, type: 3}
+  - {fileID: 2670057628928355752, guid: 0ac2cfc882f3b1a4e970fc4f906915f6, type: 3}

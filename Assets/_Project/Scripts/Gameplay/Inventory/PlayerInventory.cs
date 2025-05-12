@@ -141,6 +141,17 @@ namespace Flat.Gameplay.Inventory
             }
             return null;
         }
-    }
 
+        public bool HasItem(string itemName)
+        {
+            for (int i = 0; i < SLOTS; i++)
+            {
+                if (items[i] != null && items[i].itemName == itemName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 }
