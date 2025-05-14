@@ -11,7 +11,7 @@ namespace Flat.Gameplay.Inventory
         [SerializeField] private GameObject player;
 
         private PlayerInventory playerInventory;
-
+        
         private void Start()
         {
             if (player == null)

@@ -10,9 +10,11 @@ namespace Flat.Gameplay.Inventory
         public Sprite icon;
         public GameObject prefab;
 
-        public virtual void Use()
+        public virtual void Use() { }
+        
+        public virtual void Use(GameObject heldItemInstance)
         {
-
+            Use();
         }
     }
 

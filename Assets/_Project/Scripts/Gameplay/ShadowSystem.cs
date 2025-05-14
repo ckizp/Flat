@@ -88,7 +88,8 @@ public class ShadowSystem : MonoBehaviour
         if (e.InteractionType == targetInteractionType)
         {
             boxCollider.enabled = true;
-            shadowTarget.SetActive(true);
+            if (shadowTarget != null)
+                shadowTarget.SetActive(true);
         }
     }
 

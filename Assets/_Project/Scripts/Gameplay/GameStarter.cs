@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Flat.Gameplay.Inventory;
+using Flat.Gameplay.Inventory.Implementations;
 using Flat.Managers;
 using UnityEngine;
 
@@ -11,6 +13,9 @@ namespace Flat.Gameplay
         [SerializeField] private float delayBeforePowerOutage = 10f;
         [SerializeField] private AudioSource powerOutageSound;
         [SerializeField] private List<GameObject> powerObjects = new List<GameObject>();
+
+        [Header("References")]
+        [SerializeField] private FlashlightItem flashlightItemPrefab;
 
         private void Start()
         {
@@ -29,6 +34,15 @@ namespace Flat.Gameplay
             if (powerOutageSound != null)
             {
                 powerOutageSound.Play();
+
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+                PlayerInventory playerInventory = player.GetComponent<PlayerInventory>();
+                
+                if (flashlightItemPrefab != null)
+                {
+                    playerInventory.AddItem(flashlightItemPrefab);
+                }
             }
 
             foreach (GameObject obj in powerObjects)

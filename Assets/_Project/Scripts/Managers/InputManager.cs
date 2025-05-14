@@ -17,6 +17,7 @@ namespace Flat.Managers
         public bool Crouch { get; private set; }
         public bool Interact { get; private set; }
         public bool DropItem { get; private set; }
+        public bool UseItem { get; private set; }
 
         public event Action<int> OnInventoryScrolled;
         public event Action<int> OnSlotSelected;
@@ -29,6 +30,7 @@ namespace Flat.Managers
         private InputAction inventoryScrollAction;
         private InputAction slotSelectAction;
         private InputAction dropItemAction;
+        private InputAction useItemAction;
 
         private void Awake()
         {
@@ -47,6 +49,7 @@ namespace Flat.Managers
             inventoryScrollAction = currentMap.FindAction("InventoryScroll");
             slotSelectAction = currentMap.FindAction("SlotSelect");
             dropItemAction = currentMap.FindAction("Drop");
+            useItemAction = currentMap.FindAction("Use");
 
             RegisterInputCallbacks();
         }
@@ -84,6 +87,9 @@ namespace Flat.Managers
 
             dropItemAction.performed += OnDropItem;
             dropItemAction.canceled += OnDropItem;
+
+            useItemAction.started += OnUseItem;
+            useItemAction.canceled += OnUseItem;
         }
 
         private void UnregisterInputCallbacks()
@@ -108,6 +114,9 @@ namespace Flat.Managers
 
             dropItemAction.performed -= OnDropItem;
             dropItemAction.canceled -= OnDropItem;
+
+            useItemAction.started -= OnUseItem;
+            useItemAction.canceled -= OnUseItem;
         }
 
         private void HideCursor()
@@ -181,6 +190,11 @@ namespace Flat.Managers
         private void OnDropItem(InputAction.CallbackContext context)
         {
             DropItem = context.ReadValueAsButton();
+        }
+
+        private void OnUseItem(InputAction.CallbackContext context)
+        {
+            UseItem = context.ReadValueAsButton();
         }
     }
 }

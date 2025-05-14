@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7865410788127315474}
   - component: {fileID: 868852757812219306}
   - component: {fileID: 439477167181609712}
+  - component: {fileID: 4122670689818557252}
   - component: {fileID: 5652718517073264819}
   m_Layer: 0
   m_Name: Key
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.643285, y: 0.25645643, z: 81.205345}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1576287974945336024}
@@ -88,6 +89,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4122670689818557252
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052879551442429396}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.058462232, y: 0.13057552, z: 0.0053812494}
+  m_Center: {x: 0.00024982356, y: -0.0011685344, z: 3.5699482e-12}
 --- !u!114 &5652718517073264819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a955ba7215c0fea49874719e75dedad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
   prompt: Press <sprite name="E"> to <color=#de7217>pick up the key</color>
   interactionType: 0
   holdDuration: 1

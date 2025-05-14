@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepDescription: Exit the apartment
-  targetInteractionType: try_open_entrance_door
+  targetInteractionType: entrance_door_open

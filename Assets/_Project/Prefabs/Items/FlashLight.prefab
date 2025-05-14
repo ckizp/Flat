@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8866896283150746147}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.01671}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,13 +40,13 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8866896283150746147}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 60
+  m_Intensity: 35
+  m_Range: 40
+  m_SpotAngle: 42.407867
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -143,15 +143,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.666
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.655
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 132.87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       propertyPath: m_LocalRotation.w
@@ -163,11 +163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -183,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       propertyPath: m_Enabled
@@ -218,6 +218,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 4861171835317085335}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1613859163034551019}
   m_SourcePrefab: {fileID: 100100000, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
 --- !u!1 &7014078231855972907 stripped
@@ -225,6 +228,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 45ef1708f3745d3448f8b0f74f4c0763, type: 3}
   m_PrefabInstance: {fileID: 7896616836460871546}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &4861171835317085335
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7014078231855972907}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.03808653, y: 0.038086526, z: 0.13274792}
+  m_Center: {x: -0.0000000016458471, y: 0.00000006053597, z: -0.055225465}
 --- !u!114 &1613859163034551019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,10 +261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a955ba7215c0fea49874719e75dedad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
   prompt: Press <sprite name="E"> to <color=#de7217>pick up the flashlight</color>
   interactionType: 0
   holdDuration: 1
-  item: {fileID: 11400000, guid: d8a5bd9d51ab13c46a4a4a61974f778a, type: 2}
+  item: {fileID: 11400000, guid: 851803d7098e3cd458b69657e02f77ea, type: 2}
   player: {fileID: 0}
 --- !u!4 &7646217516026632337 stripped
 Transform:
