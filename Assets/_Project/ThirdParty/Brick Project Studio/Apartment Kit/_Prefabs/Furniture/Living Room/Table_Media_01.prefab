@@ -461,6 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baccd6e660b02ea449e3d673f4ebdcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
   prompt: Press <sprite name="E"> to <color=#de7217> open the drawer</color>
   interactionType: 0
   holdDuration: 1
@@ -557,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baccd6e660b02ea449e3d673f4ebdcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
   prompt: Press <sprite name="E"> to <color=#de7217> open the drawer</color>
   interactionType: 0
   holdDuration: 1
@@ -709,10 +711,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baccd6e660b02ea449e3d673f4ebdcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
   prompt: Press <sprite name="E"> to <color=#de7217> open the door</color>
   interactionType: 0
   holdDuration: 1
-  animator: {fileID: 0}
+  animator: {fileID: 5545287591788728563}
   openingAnimationName: Opening 1
   closingAnimationName: Closing 1
 --- !u!1 &5961576764500733094
@@ -861,6 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baccd6e660b02ea449e3d673f4ebdcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
   prompt: Press <sprite name="E"> to <color=#de7217> open the door</color>
   interactionType: 0
   holdDuration: 1

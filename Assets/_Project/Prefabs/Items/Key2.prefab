@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9182273927971152574}
   - component: {fileID: 8825358280243747414}
   - component: {fileID: 3745417391220650473}
+  - component: {fileID: 3436848092527130052}
   m_Layer: 0
   m_Name: Key2
   m_TagString: Untagged
@@ -67,11 +68,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a955ba7215c0fea49874719e75dedad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
   prompt: Press <sprite name="E"> to <color=#de7217>pick up the key</color>
   interactionType: 0
   holdDuration: 1
   item: {fileID: 11400000, guid: a4280f20653bd7e4d9bc401ee84592f9, type: 2}
   player: {fileID: 0}
+--- !u!54 &3436848092527130052
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224209044226770493}
+  serializedVersion: 4
+  m_Mass: 0.1
+  m_Drag: 0.5
+  m_AngularDrag: 0.5
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &9191173109181510035
 PrefabInstance:
   m_ObjectHideFlags: 0

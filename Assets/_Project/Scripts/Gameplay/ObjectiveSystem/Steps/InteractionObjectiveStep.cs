@@ -1,5 +1,4 @@
 using Flat.Gameplay.Interaction;
-using Flat.Gameplay.ObjectiveSystem;
 using UnityEngine;
 
 namespace Flat.Gameplay.ObjectiveSystem.Steps

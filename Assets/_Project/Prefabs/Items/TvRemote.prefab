@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc3a9430731343741962228bf126fabf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.706
+      value: -0.7383591
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc3a9430731343741962228bf126fabf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.329
+      value: 0.20702818
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc3a9430731343741962228bf126fabf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 74.875
+      value: 4.1665487
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc3a9430731343741962228bf126fabf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fc3a9430731343741962228bf126fabf, type: 3}
       propertyPath: m_Name
-      value: TV_Remote
+      value: TvRemote
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78,6 +78,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fc3a9430731343741962228bf126fabf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 353315010923174635}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fc3a9430731343741962228bf126fabf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2382192341961063488}
   m_SourcePrefab: {fileID: 100100000, guid: fc3a9430731343741962228bf126fabf, type: 3}
 --- !u!1 &5563662798456739732 stripped
 GameObject:
@@ -117,8 +120,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a955ba7215c0fea49874719e75dedad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
   prompt: Press <sprite name="E"> to <color=#de7217>pick up the TV Remote</color>
   interactionType: 0
   holdDuration: 1
   item: {fileID: 11400000, guid: b011a8ce4fc333f439ae3b096c3f0124, type: 2}
   player: {fileID: 0}
+--- !u!54 &2382192341961063488
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563662798456739732}
+  serializedVersion: 4
+  m_Mass: 0.2
+  m_Drag: 0.5
+  m_AngularDrag: 0.5
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0

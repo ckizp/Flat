@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Flat.Gameplay.Interaction.Interactions;
 using Flat.Gameplay.Inventory;
-using Flat.Gameplay.Inventory.Implementations;
+using Flat.Gameplay.Inventory.Items;
 using Flat.Managers;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace Flat.Gameplay
         [Header("Power Outage Settings")]
         [SerializeField] private float delayBeforePowerOutage = 10f;
         [SerializeField] private AudioSource powerOutageSound;
-        [SerializeField] private List<GameObject> powerObjects = new List<GameObject>();
+        [SerializeField] private ElectricalShield electricalShield;
 
         [Header("References")]
         [SerializeField] private FlashlightItem flashlightItemPrefab;
@@ -31,26 +32,29 @@ namespace Flat.Gameplay
 
         private IEnumerator TriggerPowerOutage()
         {
+            // Play the power outage sound
             if (powerOutageSound != null)
             {
                 powerOutageSound.Play();
+            }
 
-                GameObject player = GameObject.FindGameObjectWithTag("Player");
-
+            // Find the player and get their inventory
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
                 PlayerInventory playerInventory = player.GetComponent<PlayerInventory>();
-                
-                if (flashlightItemPrefab != null)
+
+                // Add the flashlight item to the inventory
+                if (playerInventory != null && flashlightItemPrefab != null)
                 {
                     playerInventory.AddItem(flashlightItemPrefab);
                 }
             }
 
-            foreach (GameObject obj in powerObjects)
+            // Turn off the electrical shield
+            if (electricalShield != null)
             {
-                if (obj != null)
-                {
-                    obj.SetActive(false);
-                }
+                yield return StartCoroutine(electricalShield.TurnOff());
             }
 
             yield return new WaitForSeconds(1.0f);
