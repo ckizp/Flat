@@ -11,6 +11,7 @@ namespace Flat.Gameplay.Characters
         private InputManager inputManager;
         private PlayerInventory inventory;
         private bool scrollCooldown = false;
+        private bool hasUsedItem = false;
         private GameObject currentHeldItem;
         [SerializeField] private Transform handAnchor;
 
@@ -53,7 +54,15 @@ namespace Flat.Gameplay.Characters
 
             if (inputManager.UseItem)
             {
-                UseSelectedItem();
+                if (!hasUsedItem)
+                {
+                    UseSelectedItem();
+                    hasUsedItem = true;
+                }
+            }
+            else
+            {
+                hasUsedItem = false;
             }
         }
 
