@@ -80,3 +80,5 @@ crashlytics-build.properties
 # Ignore macOS system files
 .DS_Store
 
+# Ignore Photoshop large document format (PSB)
+*.psb
