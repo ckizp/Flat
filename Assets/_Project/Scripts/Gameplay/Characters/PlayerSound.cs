@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 namespace Flat.Gameplay.Characters
 {
@@ -10,6 +12,14 @@ namespace Flat.Gameplay.Characters
         [SerializeField] private List<AudioClip> carpetFS;
         private float lastFootstepTime = 0f;
         [SerializeField] private float footstepCooldown = 0.2f;
+
+        [Header("FMOD - Breathing")]
+        [SerializeField] private EventReference breathingEvent;
+        [SerializeField, Tooltip("Name of the Anxiety parameter in FMOD")]
+        private string anxietyParameterName = "Anxiety";
+
+        private EventInstance _breathingInstance;
+        private PlayerAnxietyController _anxietyController;
 
         private enum FSMaterial { 
             WOOD,
@@ -22,13 +32,92 @@ namespace Flat.Gameplay.Characters
         void Start()
         {
             footstepSource = GetComponent<AudioSource>();
+            InitializeBreathing();
         }
 
-        // Update is called once per frame
+        private void OnDestroy()
+        {
+            StopBreathing();
+        }
+
         void Update()
         {
-
+            UpdateBreathingAnxiety();
         }
+
+        #region FMOD Breathing
+
+        private void InitializeBreathing()
+        {
+            // Get reference to anxiety controller
+            _anxietyController = GetComponent<PlayerAnxietyController>();
+            if (_anxietyController == null)
+            {
+                _anxietyController = GetComponentInParent<PlayerAnxietyController>();
+            }
+
+            if (_anxietyController == null)
+            {
+                Debug.LogWarning("PlayerSound: No PlayerAnxietyController found. Breathing will not respond to anxiety.");
+            }
+
+            // Create and start the FMOD breathing event
+            if (!breathingEvent.IsNull)
+            {
+                _breathingInstance = RuntimeManager.CreateInstance(breathingEvent);
+                _breathingInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+                _breathingInstance.start();
+            }
+            else
+            {
+                Debug.LogWarning("PlayerSound: Breathing event reference is not set.");
+            }
+        }
+
+        private void UpdateBreathingAnxiety()
+        {
+            if (!_breathingInstance.isValid()) return;
+
+            // Update 3D position
+            _breathingInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+
+            // Update anxiety parameter
+            if (_anxietyController != null)
+            {
+                _breathingInstance.setParameterByName(anxietyParameterName, _anxietyController.CurrentAnxiety);
+            }
+        }
+
+        /// Manually set the breathing anxiety level (useful if not using PlayerAnxietyController)
+        public void SetBreathingAnxiety(float anxiety)
+        {
+            if (_breathingInstance.isValid())
+            {
+                _breathingInstance.setParameterByName(anxietyParameterName, Mathf.Clamp(anxiety, 0f, 100f));
+            }
+        }
+
+        private void StopBreathing()
+        {
+            if (_breathingInstance.isValid())
+            {
+                _breathingInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                _breathingInstance.release();
+            }
+        }
+
+        /// Pause or resume the breathing sound
+        public void SetBreathingPaused(bool paused)
+        {
+            if (_breathingInstance.isValid())
+            {
+                _breathingInstance.setPaused(paused);
+            }
+        }
+
+        #endregion
+
+        #region Footsteps
 
         private FSMaterial SurfaceSelect()
         {
@@ -91,5 +180,7 @@ namespace Flat.Gameplay.Characters
                 footstepSource.Play();
             }
         }
+
+        #endregion
     }
 }

@@ -19265,9 +19265,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 880945101}
     m_Modifications:
-    - target: {fileID: 4842832454447750344, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
-      propertyPath: minDistance
-      value: 1.2
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Path
+      value: event:/Player/Breathing
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Guid.Data1
+      value: -718234736
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Guid.Data2
+      value: 1333204817
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Guid.Data3
+      value: -376413510
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Guid.Data4
+      value: -42472541
       objectReference: {fileID: 0}
     - target: {fileID: 7166907735973994666, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19316,7 +19332,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8936467297906906005, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1632215844}
   m_SourcePrefab: {fileID: 100100000, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
 --- !u!1 &825335452
 GameObject:
@@ -20982,6 +21001,78 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3336c0415cc8e744bf85f0c5d0376c1, type: 3}
+--- !u!1 &890116465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 890116466}
+  - component: {fileID: 890116468}
+  - component: {fileID: 890116469}
+  m_Layer: 0
+  m_Name: PlayerApartmentBreathingTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &890116466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890116465}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.7309723, y: 0.7176137, z: 100.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2103558876}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &890116468
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890116465}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.221175, y: 0.9037545, z: 1.0775604}
+  m_Center: {x: -0.33214188, y: -0.048122644, z: -3.413765}
+--- !u!114 &890116469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890116465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11808ae70cf6d894794378204a59a5eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anxietyLevel: 0
+  resetOnExit: 0
+  addSpike: 0
+  spikeAmount: 0
+  delay: 0
+  triggerOnce: 0
 --- !u!1001 &894309181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40070,6 +40161,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07658aca41ab397428d52ab5613416f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1632215844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632215829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76e455f7f064e047821289ad52455fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseAnxiety: 0
+  anxietyDecayRate: 5
+  anxietyLerpSpeed: 3
+  showDebugInfo: 0
 --- !u!1001 &1641266109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40413,6 +40520,78 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646990176}
   m_Mesh: {fileID: 4300010, guid: 8537129dc3fbbe44186add4eea186b85, type: 3}
+--- !u!1 &1649938085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649938088}
+  - component: {fileID: 1649938087}
+  - component: {fileID: 1649938086}
+  m_Layer: 0
+  m_Name: HallwayBreathingTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1649938086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649938085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11808ae70cf6d894794378204a59a5eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anxietyLevel: 33
+  resetOnExit: 0
+  addSpike: 0
+  spikeAmount: 33
+  delay: 0
+  triggerOnce: 0
+--- !u!65 &1649938087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649938085}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.221175, y: 0.9037545, z: 1.0775604}
+  m_Center: {x: -0.33214188, y: -0.048122644, z: -3.413765}
+--- !u!4 &1649938088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649938085}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.7309723, y: 0.7176137, z: 101.90148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2103558876}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1651751864
 GameObject:
   m_ObjectHideFlags: 0
@@ -40645,6 +40824,7 @@ GameObject:
   - component: {fileID: 1660694649}
   - component: {fileID: 1660694650}
   - component: {fileID: 1660694651}
+  - component: {fileID: 1660694652}
   m_Layer: 0
   m_Name: BoxTrigger
   m_TagString: Untagged
@@ -40703,6 +40883,24 @@ MonoBehaviour:
   doorAs: {fileID: 858463779}
   voiceAs: {fileID: 1400712288}
   delayBetweenSounds: 2
+--- !u!114 &1660694652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660694648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11808ae70cf6d894794378204a59a5eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anxietyLevel: 33
+  resetOnExit: 0
+  addSpike: 1
+  spikeAmount: 33
+  delay: 0.8
+  triggerOnce: 1
 --- !u!1 &1662921308
 GameObject:
   m_ObjectHideFlags: 0
@@ -51240,6 +51438,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 565628630}
+  - {fileID: 1649938088}
+  - {fileID: 890116466}
   m_Father: {fileID: 683803059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2106827409 stripped

@@ -12235,19 +12235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07658aca41ab397428d52ab5613416f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2135136575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2135136565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cedfb36ef1dc8340b4d578796acdaa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handAnchor: {fileID: 0}
 --- !u!1001 &5240975193989491741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12256,6 +12243,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Path
+      value: event:/Player/Breathing
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Guid.Data1
+      value: -718234736
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Guid.Data2
+      value: 1333204817
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Guid.Data3
+      value: -376413510
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: breathingEvent.Guid.Data4
+      value: -42472541
+      objectReference: {fileID: 0}
     - target: {fileID: 7166907735973994666, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.23708987
@@ -12300,13 +12307,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8210389841657988204, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8936467297906906005, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2135136575}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
 --- !u!1001 &7424173625847869212
 PrefabInstance:
