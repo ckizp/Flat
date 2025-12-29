@@ -15,12 +15,12 @@ MonoBehaviour:
   Path: Assets/_Project/Audio/FMOD/PlayerBreathing/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639023813017902542
+  lastModified: 639025730557375828
   FileSizes:
   - Name: Desktop
-    Value: 582016
+    Value: 587232
   Exists: 1
---- !u!114 &-7320017916730428288
+--- !u!114 &-722774827829750962
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34,20 +34,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Player/Breathing
   Guid:
-    Data1: -718234736
-    Data2: 1333204817
-    Data3: -376413510
-    Data4: -42472541
+    Data1: -1130531335
+    Data2: 1321161653
+    Data3: -1417353289
+    Data4: -1777074544
   Banks:
   - {fileID: -8809324772009542250}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters:
-  - {fileID: 9095010067635425016}
+  - {fileID: 3163756892102612798}
   MinDistance: 1
   MaxDistance: 20
-  Length: 24555
+  Length: 18400
 --- !u!114 &-583005733738043142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   Path: Assets/_Project/Audio/FMOD/PlayerBreathing/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639023813017902542
+  lastModified: 639025730557385868
   FileSizes:
   - Name: Desktop
     Value: 826
@@ -84,18 +84,18 @@ MonoBehaviour:
   - {fileID: -583005733738043142}
   - {fileID: -8809324772009542250}
   EditorEvents:
-  - {fileID: -7320017916730428288}
+  - {fileID: -722774827829750962}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8809324772009542250}
   StringsBanks:
   - {fileID: -583005733738043142}
   cacheVersion: 131857
-  cacheTime: 639023813017902542
+  cacheTime: 639025730557385868
   SerializableEventsDict:
   - key: event:/Player/Breathing
     index: 0
---- !u!114 &9095010067635425016
+--- !u!114 &3163756892102612798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

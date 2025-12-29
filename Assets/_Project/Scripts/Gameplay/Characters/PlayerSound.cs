@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
@@ -20,6 +22,11 @@ namespace Flat.Gameplay.Characters
 
         private EventInstance _breathingInstance;
         private PlayerAnxietyController _anxietyController;
+        private GCHandle _gcHandle;
+
+        public static event Action OnExpire;
+
+        private const string EXPIRE_MARKER_PREFIX = "Expire_";
 
         private enum FSMaterial { 
             WOOD,
@@ -37,6 +44,10 @@ namespace Flat.Gameplay.Characters
 
         private void OnDestroy()
         {
+            if (_gcHandle.IsAllocated)
+            {
+                _gcHandle.Free();
+            }
             StopBreathing();
         }
 
@@ -66,6 +77,11 @@ namespace Flat.Gameplay.Characters
             {
                 _breathingInstance = RuntimeManager.CreateInstance(breathingEvent);
                 _breathingInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+                
+                _gcHandle = GCHandle.Alloc(this);
+                _breathingInstance.setUserData(GCHandle.ToIntPtr(_gcHandle));
+                _breathingInstance.setCallback(MarkerCallback, EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+                
                 _breathingInstance.start();
             }
             else
@@ -113,6 +129,39 @@ namespace Flat.Gameplay.Characters
             {
                 _breathingInstance.setPaused(paused);
             }
+        }
+
+        [AOT.MonoPInvokeCallback(typeof(EVENT_CALLBACK))]
+        private static FMOD.RESULT MarkerCallback(EVENT_CALLBACK_TYPE type, IntPtr instancePtr, IntPtr parameters)
+        {
+            EventInstance instance = new EventInstance { handle = instancePtr };
+
+            instance.getUserData(out IntPtr userData);
+            if (userData == IntPtr.Zero) return FMOD.RESULT.OK;
+
+            GCHandle handle = GCHandle.FromIntPtr(userData);
+            if (!handle.IsAllocated) return FMOD.RESULT.OK;
+
+            PlayerSound playerSound = handle.Target as PlayerSound;
+            if (playerSound == null) return FMOD.RESULT.OK;
+
+            var markerInfo = Marshal.PtrToStructure<TIMELINE_MARKER_PROPERTIES>(parameters);
+            string markerName = markerInfo.name;
+
+            if (markerName.StartsWith(EXPIRE_MARKER_PREFIX))
+            {
+                if (int.TryParse(markerName.Substring(EXPIRE_MARKER_PREFIX.Length), out int markerLevel))
+                {
+                    float currentAnxiety = playerSound._anxietyController?.CurrentAnxiety ?? 0f;
+                    
+                    if (Mathf.Abs(currentAnxiety - markerLevel) < 17f)
+                    {
+                        OnExpire?.Invoke();
+                    }
+                }
+            }
+
+            return FMOD.RESULT.OK;
         }
 
         #endregion
@@ -163,10 +212,10 @@ namespace Flat.Gameplay.Characters
             switch (surface)
             {
                 case FSMaterial.WOOD:
-                    clip = woodFS[Random.Range(0, woodFS.Count)];
+                    clip = woodFS[UnityEngine.Random.Range(0, woodFS.Count)];
                     break;
                 case FSMaterial.CARPET:
-                    clip = carpetFS[Random.Range(0, carpetFS.Count)];
+                    clip = carpetFS[UnityEngine.Random.Range(0, carpetFS.Count)];
                     break;
                 default:
                     break;
@@ -175,8 +224,8 @@ namespace Flat.Gameplay.Characters
             if (clip != null)
             {
                 footstepSource.clip = clip;
-                footstepSource.volume = Random.Range(0.03f, 0.06f);
-                footstepSource.pitch = Random.Range(0.8f, 1.2f);
+                footstepSource.volume = UnityEngine.Random.Range(0.03f, 0.06f);
+                footstepSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
                 footstepSource.Play();
             }
         }

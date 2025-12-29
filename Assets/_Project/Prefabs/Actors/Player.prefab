@@ -8389,6 +8389,7 @@ GameObject:
   - component: {fileID: 1048867179260966106}
   - component: {fileID: 6716814570182725480}
   - component: {fileID: 6378618834560058635}
+  - component: {fileID: 3070272278490274074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8730,10 +8731,10 @@ MonoBehaviour:
   footstepCooldown: 0.2
   breathingEvent:
     Guid:
-      Data1: -718234736
-      Data2: 1333204817
-      Data3: -376413510
-      Data4: -42472541
+      Data1: -1130531335
+      Data2: 1321161653
+      Data3: -1417353289
+      Data4: -1777074544
     Path: event:/Player/Breathing
   anxietyParameterName: Anxiety
 --- !u!114 &6378618834560058635
@@ -8752,6 +8753,21 @@ MonoBehaviour:
   anxietyDecayRate: 5
   anxietyLerpSpeed: 3
   showDebugInfo: 0
+--- !u!114 &3070272278490274074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936467297906906005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e206260994d4ab4eb0abc8f248b7ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breathParticles: {fileID: 1179191463617065342}
+  baseParticleCount: 5
+  panicExtraParticles: 10
 --- !u!1 &8941257335091788204
 GameObject:
   m_ObjectHideFlags: 0

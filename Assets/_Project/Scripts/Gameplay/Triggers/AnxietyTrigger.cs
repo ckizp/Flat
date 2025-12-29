@@ -31,15 +31,12 @@ namespace Flat.Gameplay.Characters
         private bool triggerOnce = false;
 
         private bool _hasTriggered;
-        private bool _playerInZone;
         private Coroutine _delayCoroutine;
 
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("Player")) return;
             if (triggerOnce && _hasTriggered) return;
-
-            _playerInZone = true;
 
             if (delay > 0f)
             {
@@ -55,10 +52,6 @@ namespace Flat.Gameplay.Characters
         {
             if (!other.CompareTag("Player")) return;
 
-            _playerInZone = false;
-
-            // Reset anxiety only if configured to do so (Zone mode)
-            // Note: delayed effects are NOT cancelled when exiting
             if (resetOnExit && !addSpike && _delayCoroutine == null)
             {
                 PlayerAnxietyController.Instance?.SetBaseAnxiety(0f);
