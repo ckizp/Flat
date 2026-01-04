@@ -118,7 +118,7 @@ Material:
     - _NoiseSpeed: 0.5
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PulseIntensity: 0.02
+    - _PulseIntensity: 0.04
     - _PulseSpeed: 2
     - _QueueControl: 0
     - _QueueOffset: 0
