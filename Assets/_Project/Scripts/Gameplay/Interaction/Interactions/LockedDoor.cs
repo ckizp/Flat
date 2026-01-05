@@ -54,5 +54,10 @@ namespace Flat.Gameplay.Interaction.Interactions
             isOpen = false;
             yield return new WaitForSeconds(0.5f);
         }
+
+        public void Unlock()
+        {
+            isLocked = false;
+        }
     }
 }

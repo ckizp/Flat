@@ -1,6 +1,7 @@
 using System;
 using Flat.Gameplay.Inventory.Items;
 using Flat.Gameplay.ObjectiveSystem;
+using Flat.Gameplay.Interaction.Interactions;
 using Flat.Managers;
 using UnityEngine;
 using UnityEngine.Video;
@@ -22,6 +23,9 @@ namespace Flat.Gameplay.Inventory.Items
         [Header("Objective Settings")]
         [SerializeField] private string requiredObjectiveId = "Objective_WatchingYou";
         [SerializeField] private int requiredStepIndex = 0;
+
+        [Header("Door Settings")]
+        [SerializeField] private LockedDoor neighborDoor;
 
         private bool hasPlayed = false;
         private bool isVideoPlaying = false;
@@ -129,6 +133,11 @@ namespace Flat.Gameplay.Inventory.Items
             if (tvAudio != null && endingSound != null)
             {
                 tvAudio.PlayOneShot(endingSound);
+            }
+
+            if (neighborDoor != null)
+            {
+                neighborDoor.Unlock();
             }
 
             OnVideoEnded?.Invoke();

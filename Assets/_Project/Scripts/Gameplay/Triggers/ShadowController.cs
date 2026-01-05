@@ -1,3 +1,4 @@
+using Flat.Gameplay.Characters;
 using Flat.Gameplay.Interaction;
 using UnityEngine;
 
@@ -10,6 +11,9 @@ namespace Flat.Gameplay.Triggers
         [SerializeField] private AudioSource triggerAudio;
         [SerializeField] private float shadowRunSpeed = 10f;
         [SerializeField] private string targetInteractionType;
+
+        [Header("Anxiety Settings")]
+        [SerializeField] private float anxietySpike = 100f;
 
         private static readonly int velHash = Animator.StringToHash("Velocity");
         private bool isTriggered;
@@ -49,14 +53,19 @@ namespace Flat.Gameplay.Triggers
 
             if (other.CompareTag("Player"))
             {
+                isTriggered = true;
+
+                if (PlayerAnxietyController.Instance != null)
+                {
+                    PlayerAnxietyController.Instance.AddAnxietySpike(anxietySpike);
+                }
+
                 if (triggerAudio != null)
                 {
                     triggerAudio.Play();
-                    isTriggered = true;
                 }
 
                 shadowAnimator.SetFloat(velHash, 10f);
-
                 GetComponent<Collider>().enabled = false;
             }
         }
