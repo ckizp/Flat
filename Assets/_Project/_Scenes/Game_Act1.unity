@@ -1456,6 +1456,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2627634969126512104, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
+      propertyPath: m_margin.z
+      value: -13.404037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627634969126512104, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2627634969126512104, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3833265034732695093, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1648,6 +1660,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: IMainHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 8183102404703292059, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8183102404703292059, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8642416866796543875, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1656,6 +1676,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8766043433600420542, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8766043433600420542, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 9092873261676833890, guid: 5e12145b2bac2dd4194e8a69bac4fe27, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10373,6 +10401,7 @@ MonoBehaviour:
   triggerAudio: {fileID: 403648754}
   shadowRunSpeed: 100
   targetInteractionType: breaker_activate
+  anxietySpike: 100
 --- !u!82 &403648754
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40577,6 +40606,7 @@ MonoBehaviour:
   triggerAudio: {fileID: 1410588963}
   shadowRunSpeed: 100
   targetInteractionType: breaker_activate
+  anxietySpike: 100
 --- !u!82 &1410588963
 AudioSource:
   m_ObjectHideFlags: 0

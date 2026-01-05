@@ -17,3 +17,4 @@ MonoBehaviour:
   objectiveStepPrefabs:
   - {fileID: 7885370324134071990, guid: 2d470600c1830f541a1cd6ed11d3e06b, type: 3}
   - {fileID: 7939606424067330243, guid: 369f373bd422b5f4086408b6baea3a98, type: 3}
+  - {fileID: 7939606424067330243, guid: de42bf4311758ac4d9ef5be4383fcabb, type: 3}
