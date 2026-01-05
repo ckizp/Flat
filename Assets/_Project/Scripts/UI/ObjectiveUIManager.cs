@@ -130,6 +130,7 @@ namespace Flat.UI
             if (fadeCoroutine != null)
             {
                 StopCoroutine(fadeCoroutine);
+                fadeCoroutine = null;
             }
 
             fadeCoroutine = StartCoroutine(FadeIn());
@@ -140,6 +141,7 @@ namespace Flat.UI
             if (fadeCoroutine != null)
             {
                 StopCoroutine(fadeCoroutine);
+                fadeCoroutine = null;
             }
 
             fadeCoroutine = StartCoroutine(FadeOut());
@@ -175,7 +177,6 @@ namespace Flat.UI
             }
 
             canvasGroup.alpha = 0f;
-            objectiveContainer.SetActive(false);
             fadeCoroutine = null;
         }
 

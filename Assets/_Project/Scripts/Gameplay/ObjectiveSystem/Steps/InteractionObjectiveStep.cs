@@ -5,6 +5,7 @@ namespace Flat.Gameplay.ObjectiveSystem.Steps
 {
     public class InteractionObjectiveStep : ObjectiveStep
     {
+        [SerializeField] private string targetInteractableId;
         [SerializeField] private string targetInteractionType;
 
         private void OnEnable()
@@ -19,7 +20,13 @@ namespace Flat.Gameplay.ObjectiveSystem.Steps
 
         private void OnInteraction(object sender, InteractionEventArgs e)
         {
-            if (e.InteractionType == targetInteractionType)
+            // Check interactable ID if specified
+            bool idMatches = string.IsNullOrEmpty(targetInteractableId) || e.InteractableId == targetInteractableId;
+
+            // Check interaction type if specified
+            bool typeMatches = string.IsNullOrEmpty(targetInteractionType) || e.InteractionType == targetInteractionType;
+
+            if (idMatches && typeMatches)
             {
                 FinishObjectiveStep();
             }

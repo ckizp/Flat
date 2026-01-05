@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepDescription: Reset the circuit breaker
+  targetInteractableId: breaker
   targetInteractionType: breaker_activate

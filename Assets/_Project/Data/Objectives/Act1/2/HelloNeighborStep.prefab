@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7000387544520948759}
   - component: {fileID: 5056015432059040881}
   m_Layer: 0
-  m_Name: ExitApartmentStep
+  m_Name: HelloNeighborStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89daa00cac164d6439c15ee1eb14dd55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepDescription: Exit the apartment
-  targetInteractableId: entrance_door
+  stepDescription: "Go to the neighbor\u2019s"
+  targetInteractableId: neighbor_door
   targetInteractionType: entrance_door_open

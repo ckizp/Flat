@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7939606424067330243
+--- !u!1 &7885370324134071990
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7000387544520948759}
-  - component: {fileID: 5056015432059040881}
+  - component: {fileID: 2017463499443052260}
+  - component: {fileID: -5766775386993014984}
   m_Layer: 0
-  m_Name: ExitApartmentStep
+  m_Name: ChangeChannelStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7000387544520948759
+--- !u!4 &2017463499443052260
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939606424067330243}
+  m_GameObject: {fileID: 7885370324134071990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3704653, y: -2.0765328, z: 133.19044}
+  m_LocalPosition: {x: 19.066252, y: 1.3980157, z: 74.91652}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5056015432059040881
+--- !u!114 &-5766775386993014984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939606424067330243}
+  m_GameObject: {fileID: 7885370324134071990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89daa00cac164d6439c15ee1eb14dd55, type: 3}
+  m_Script: {fileID: 11500000, guid: ecab74ae673185e4fb1a634f99c56750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepDescription: Exit the apartment
-  targetInteractableId: entrance_door
-  targetInteractionType: entrance_door_open
+  stepDescription: Change the channel on the TV
+  targetItemName: TV Remote

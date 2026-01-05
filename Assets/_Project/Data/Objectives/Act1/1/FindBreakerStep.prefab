@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepDescription: Find the circuit breaker
+  targetInteractableId: entrance_door
   targetInteractionType: try_open_entrance_door

@@ -124,7 +124,7 @@ MonoBehaviour:
   prompt: Press <sprite name="E"> to <color=#de7217>pick up the TV Remote</color>
   interactionType: 0
   holdDuration: 1
-  item: {fileID: 11400000, guid: b011a8ce4fc333f439ae3b096c3f0124, type: 2}
+  item: {fileID: 11400000, guid: 2915504a1a96deb458e0bd23e1469918, type: 2}
   player: {fileID: 0}
 --- !u!54 &2382192341961063488
 Rigidbody:

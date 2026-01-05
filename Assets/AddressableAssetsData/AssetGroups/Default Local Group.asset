@@ -21,6 +21,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Act1
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9aa81681780d2e04f830c9ce524dd400
+    m_Address: Assets/_Project/Data/Objectives/Act1/Objective_WatchingYou.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Act1
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 315f0aa5054c0994d815a773cd5be481, type: 2}
   m_SchemaSet:

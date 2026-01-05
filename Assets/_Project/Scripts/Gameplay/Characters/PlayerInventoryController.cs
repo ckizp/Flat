@@ -98,6 +98,7 @@ namespace Flat.Gameplay.Characters
                 }
                 
                 selectedItem.Use(currentHeldItem);
+                inventory.OnItemUsed(selectedItem);
             }
         }
 

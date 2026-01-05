@@ -13,6 +13,7 @@ namespace Flat.Gameplay.Inventory
         public event EventHandler<InventoryEventArgs> ItemAdded;
         public event EventHandler<InventoryEventArgs> ItemRemoved;
         public event EventHandler<InventoryEventArgs> ItemSelected;
+        public event EventHandler<InventoryEventArgs> ItemUsed;
 
         private void Awake()
         {
@@ -140,6 +141,11 @@ namespace Flat.Gameplay.Inventory
                 return items[index];
             }
             return null;
+        }
+        
+        public void OnItemUsed(Item item)
+        {
+            ItemUsed?.Invoke(this, new InventoryEventArgs(item));
         }
 
         public bool HasItem(string itemName)
