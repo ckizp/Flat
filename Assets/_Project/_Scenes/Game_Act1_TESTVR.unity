@@ -8072,7 +8072,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 277368676}
   m_CameraFloorOffsetObject: {fileID: 785248287}
   m_RequestedTrackingOriginMode: 1
-  m_CameraYOffset: 1.6
+  m_CameraYOffset: 5000
 --- !u!114 &277368680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8089,9 +8089,6 @@ MonoBehaviour:
   xrCamera: {fileID: 810672571}
   walkSpeed: 2
   runSpeed: 3.5
-  snapTurnAngle: 45
-  turnCooldown: 0.35
-  turnDeadzone: 0.7
 --- !u!4 &285476532 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e3336c0415cc8e744bf85f0c5d0376c1, type: 3}
@@ -23020,6 +23017,14 @@ PrefabInstance:
       propertyPath: source
       value: 
       objectReference: {fileID: 810672571}
+    - target: {fileID: 6442681945061021039, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442681945061021039, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6716814570182725480, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: breathingEvent.Guid.Data1
       value: -1130531335
@@ -23062,19 +23067,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166907735973994666, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7166907735973994666, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7166907735973994666, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7166907735973994666, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7166907735973994666, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -23082,7 +23087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166907735973994666, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7166907735973994666, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -23103,6 +23108,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8936467297906906005, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1632215845}
+    - targetCorrespondingSourceObject: {fileID: 8936467297906906005, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1632215870}
   m_SourcePrefab: {fileID: 100100000, guid: 4ddc28212c219384f84f164c1525cfa7, type: 3}
 --- !u!114 &824287603 stripped
 MonoBehaviour:
@@ -48146,6 +48154,20 @@ MonoBehaviour:
   breathParticles: {fileID: 315459684}
   baseParticleCount: 5
   panicExtraParticles: 10
+--- !u!114 &1632215870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632215829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91d8e593899ffb429a521e2ac6d3ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xrCamera: {fileID: 810672571}
+  followYaw: 1
 --- !u!1001 &1641266109
 PrefabInstance:
   m_ObjectHideFlags: 0

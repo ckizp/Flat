@@ -1,6 +1,7 @@
 using Flat.Managers;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class VRRigMovementController : MonoBehaviour
 {
     [Header("References")]
@@ -11,6 +12,17 @@ public class VRRigMovementController : MonoBehaviour
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float runSpeed = 3.5f;
 
+    [Header("Gravity")]
+    [SerializeField] private float gravity = -9.81f;
+
+    private CharacterController characterController;
+    private float verticalVelocity;
+
+    private void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
+
     private void Update()
     {
         Move();
@@ -18,7 +30,8 @@ public class VRRigMovementController : MonoBehaviour
 
     private void Move()
     {
-        if (input == null || xrCamera == null) return;
+        if (input == null || xrCamera == null)
+            return;
 
         Vector2 moveInput = input.Move;
         float speed = input.Run ? runSpeed : walkSpeed;
@@ -33,7 +46,14 @@ public class VRRigMovementController : MonoBehaviour
         right.Normalize();
 
         Vector3 move = forward * moveInput.y + right * moveInput.x;
+        move *= speed;
 
-        transform.position += move * speed * Time.deltaTime;
+        if (characterController.isGrounded && verticalVelocity < 0f)
+            verticalVelocity = -2f;
+
+        verticalVelocity += gravity * Time.deltaTime;
+        move.y = verticalVelocity;
+
+        characterController.Move(move * Time.deltaTime);
     }
 }
