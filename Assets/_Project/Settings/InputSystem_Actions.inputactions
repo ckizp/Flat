@@ -95,6 +95,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LeftHandPosition",
+                    "type": "Value",
+                    "id": "965c7528-f964-4ab0-9577-a4a626de7fff",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftHandRotation",
+                    "type": "Value",
+                    "id": "aeab5d25-1a57-4680-b2b8-65760d272b17",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightHandPosition",
+                    "type": "Value",
+                    "id": "ff482f39-5f03-4e28-b683-a4e7d5aa4901",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightHandRotation",
+                    "type": "Value",
+                    "id": "b63058dd-3117-4a36-9558-7be865c2f21f",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -513,6 +549,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "SlotSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "839a6926-d9b0-4cb3-aed7-f292a5883185",
+                    "path": "<XRController>{LeftHand}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftHandPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2241fd78-d447-442a-943b-9c72e51b44ce",
+                    "path": "<XRController>{LeftHand}/deviceRotation",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftHandRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2aadb69-ceb3-4d46-bb2f-2b8d1044e3d2",
+                    "path": "<XRController>{RightHand}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightHandPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ae1f8a2-fd52-407e-bd29-d743f7ecf99b",
+                    "path": "<XRController>{RightHand}/deviceRotation",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightHandRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

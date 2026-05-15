@@ -17,7 +17,6 @@ namespace Flat.Gameplay.Characters
 
         private void Awake()
         {
-            BoxCollider test = new BoxCollider();
             inputManager = GetComponent<InputManager>();
             inventory = GetComponent<PlayerInventory>();
 
