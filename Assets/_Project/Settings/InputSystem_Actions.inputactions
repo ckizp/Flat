@@ -131,6 +131,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "LeftGripValue",
+                    "type": "Value",
+                    "id": "a5732b93-ea63-49c0-b7fb-b8be03cee3dd",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightGripValue",
+                    "type": "Value",
+                    "id": "f30cbed4-1ac9-4f20-bdfd-65f718f38c81",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftTriggerValue",
+                    "type": "Value",
+                    "id": "b7100d3b-11f7-469f-992d-1b56bdd5287e",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightTriggerValue",
+                    "type": "Value",
+                    "id": "b1b86eda-b04e-44ab-86ca-07e2b478d5b9",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -593,6 +629,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightHandRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd57b9bd-2d9b-4e8d-a76a-9f4495e1b34f",
+                    "path": "<XRController>{LeftHand}/{Grip}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftGripValue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09855118-d7ea-4abb-8e58-579cb2dc2161",
+                    "path": "<XRController>{RightHand}/{Grip}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightGripValue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46123288-126d-4b08-9b74-09c0d681eb91",
+                    "path": "<XRController>{LeftHand}/{Trigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftTriggerValue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e34430b-c8c1-4887-a8c5-46a870fd2b75",
+                    "path": "<XRController>{RightHand}/{Trigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightTriggerValue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

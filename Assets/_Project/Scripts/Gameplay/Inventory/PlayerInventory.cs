@@ -159,5 +159,30 @@ namespace Flat.Gameplay.Inventory
             }
             return false;
         }
+
+        public bool AddItemAt(int slotIndex, Item item)
+        {
+            if (slotIndex < 0 || slotIndex >= SLOTS)
+                return false;
+
+            if (items[slotIndex] != null)
+                return false;
+
+            items[slotIndex] = item;
+            ItemAdded?.Invoke(this, new InventoryEventArgs(item));
+
+            selectedSlotIndex = slotIndex;
+            TriggerSelectionEvent();
+
+            return true;
+        }
+
+        public bool IsSlotEmpty(int slotIndex)
+        {
+            if (slotIndex < 0 || slotIndex >= SLOTS)
+                return false;
+
+            return items[slotIndex] == null;
+        }
     }
 }
