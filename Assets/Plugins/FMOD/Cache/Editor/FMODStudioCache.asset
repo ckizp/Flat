@@ -63,7 +63,7 @@ MonoBehaviour:
   Path: Assets/_Project/Audio/FMOD/PlayerBreathing/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639136008446989211
+  lastModified: 639136008446989212
   FileSizes:
   - Name: Desktop
     Value: 826
@@ -91,7 +91,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -583005733738043142}
   cacheVersion: 131857
-  cacheTime: 639136008446989211
+  cacheTime: 639136008446989212
   SerializableEventsDict:
   - key: event:/Player/Breathing
     index: 0
