@@ -55,6 +55,22 @@ ExportedObj/
 
 # Unity3D generated file on crash reports
 sysinfo.txt
+mono_crash.*.json
+
+# Unity editor / FMOD logs
+*.log
+
+# Burst debug info (not for shipping)
+/[Ff]lat_BurstDebugInformation_DoNotShip/
+
+# VS Code workspace settings
+.vscode/
+
+# AI Toolkit temp data
+/[Aa]ssets/AI Toolkit/Temp/
+
+# Visual Studio solution (xml format)
+*.slnx
 
 # Builds
 *.apk

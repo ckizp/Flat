@@ -29,6 +29,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1310157392927194631, guid: 2a54b78eced40e74db39ff12257d5702, type: 3}
+      propertyPath: _renderers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310157392927194631, guid: 2a54b78eced40e74db39ff12257d5702, type: 3}
       propertyPath: '_renderers.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
@@ -86,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3383418444488100666, guid: 2a54b78eced40e74db39ff12257d5702, type: 3}
       propertyPath: m_Name
-      value: Key Variant
+      value: Key_VR
       objectReference: {fileID: 0}
     - target: {fileID: 3383418444488100666, guid: 2a54b78eced40e74db39ff12257d5702, type: 3}
       propertyPath: m_Layer
