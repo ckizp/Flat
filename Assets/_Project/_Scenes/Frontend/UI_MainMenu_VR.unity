@@ -13354,7 +13354,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ABANDON
+  m_text: 'Quit
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa64eaf5f2e4a954db1e4ac6d252bb73, type: 2}
   m_sharedMaterial: {fileID: -5444793668817539685, guid: fa64eaf5f2e4a954db1e4ac6d252bb73, type: 2}
@@ -20547,7 +20549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1226151302
 Transform:
   m_ObjectHideFlags: 0
@@ -22405,7 +22407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307429220}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3.1000004, z: 15}
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28420,7 +28422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ENTER THE COMPLEX
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa64eaf5f2e4a954db1e4ac6d252bb73, type: 2}
   m_sharedMaterial: {fileID: -5444793668817539685, guid: fa64eaf5f2e4a954db1e4ac6d252bb73, type: 2}

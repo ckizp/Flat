@@ -32,6 +32,7 @@ public class VRRigMovementController : MonoBehaviour
 
     private readonly List<InputDevice> controllers = new List<InputDevice>();
     private readonly List<InputDevice> rightControllers = new List<InputDevice>();
+    private readonly List<InputDevice> leftControllers = new List<InputDevice>();
 
     private void Awake()
     {
@@ -69,11 +70,13 @@ public class VRRigMovementController : MonoBehaviour
 
     private void Move()
     {
-        if (input == null || xrCamera == null)
+        if (xrCamera == null)
             return;
 
-        Vector2 moveInput = input.Move;
-        bool running = input.Run || ThumbstickClicked();
+        // Movement is read directly from the LEFT stick so it never conflicts with
+        // the RIGHT stick used for turning.
+        Vector2 moveInput = ReadLeftThumbstick();
+        bool running = (input != null && input.Run) || ThumbstickClicked();
         float speed = running ? runSpeed : walkSpeed;
 
         Vector3 forward = xrCamera.forward;
@@ -96,6 +99,17 @@ public class VRRigMovementController : MonoBehaviour
         move.y = verticalVelocity;
 
         characterController.Move(move * Time.deltaTime);
+    }
+
+    /// <summary>Reads the left controller's thumbstick (movement axis).</summary>
+    private Vector2 ReadLeftThumbstick()
+    {
+        InputDevices.GetDevicesWithCharacteristics(
+            InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Left, leftControllers);
+        foreach (var device in leftControllers)
+            if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 axis))
+                return axis;
+        return Vector2.zero;
     }
 
     /// <summary>True if either controller's thumbstick is clicked (pressed in).</summary>
