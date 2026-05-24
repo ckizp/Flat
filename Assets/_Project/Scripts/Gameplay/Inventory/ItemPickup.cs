@@ -18,11 +18,17 @@ namespace Flat.Gameplay.Inventory
                 player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null)
-                playerInventory = player.GetComponent<PlayerInventory>();
+                playerInventory = player.GetComponentInChildren<PlayerInventory>();
         }
 
         public override void Interact()
         {
+            if (playerInventory == null)
+            {
+                // Last ditch effort if not found in Start
+                playerInventory = Object.FindAnyObjectByType<PlayerInventory>();
+            }
+
             if (playerInventory == null) return;
 
             if (playerInventory.AddItem(item))
@@ -38,7 +44,7 @@ namespace Flat.Gameplay.Inventory
         public void SetPlayer(GameObject newPlayer)
         {
             player = newPlayer;
-            playerInventory = player.GetComponent<PlayerInventory>();
+            playerInventory = player.GetComponentInChildren<PlayerInventory>();
         }
-    }
+}
 }

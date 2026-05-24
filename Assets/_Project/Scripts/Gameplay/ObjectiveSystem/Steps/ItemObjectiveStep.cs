@@ -12,9 +12,17 @@ namespace Flat.Gameplay.ObjectiveSystem.Steps
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+                PlayerInventory inventory = player.GetComponentInChildren<PlayerInventory>();
                 if (inventory != null)
                 {
+                    // Check if player already has the item
+                    if (inventory.HasItem(targetItemName))
+                    {
+                        Debug.Log($"[ItemObjective] Player already has {targetItemName}. Completing step.");
+                        FinishObjectiveStep();
+                        return;
+                    }
+
                     inventory.ItemAdded += OnItemAdded;
                 }
             }
@@ -25,7 +33,7 @@ namespace Flat.Gameplay.ObjectiveSystem.Steps
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+                PlayerInventory inventory = player.GetComponentInChildren<PlayerInventory>();
                 if (inventory != null)
                 {
                     inventory.ItemAdded -= OnItemAdded;

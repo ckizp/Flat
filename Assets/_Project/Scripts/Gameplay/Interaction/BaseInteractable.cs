@@ -40,9 +40,14 @@ namespace Flat.Gameplay.Interaction
         {
             if (!string.IsNullOrEmpty(interactableId))
             {
+                Debug.Log($"[BaseInteractable] Triggering interaction: ID='{interactableId}', Action='{actionType}'");
                 var args = new InteractionEventArgs(interactableId, actionType);
                 AnyInteraction?.Invoke(this, args);
             }
+            else
+            {
+                Debug.LogWarning($"[BaseInteractable] TriggerInteraction('{actionType}') called on {gameObject.name}, but interactableId is empty!");
+            }
         }
-    }
+}
 }

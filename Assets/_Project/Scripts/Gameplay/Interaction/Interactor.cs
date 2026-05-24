@@ -92,7 +92,8 @@ namespace Flat.Gameplay.Interaction
             if (Physics.Raycast(source.position, source.forward,
                 out hit, adjustedDistance, interactableLayers))
             {
-                if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+                var interactable = hit.collider.GetComponentInParent<IInteractable>();
+                if (interactable != null)
                 {
                     if (interactable != currentFocus)
                     {

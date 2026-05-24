@@ -12,7 +12,7 @@ namespace Flat.Gameplay.ObjectiveSystem.Steps
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+                PlayerInventory inventory = player.GetComponentInChildren<PlayerInventory>();
                 if (inventory != null)
                 {
                     inventory.ItemUsed += OnItemUsed;
@@ -25,7 +25,7 @@ namespace Flat.Gameplay.ObjectiveSystem.Steps
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+                PlayerInventory inventory = player.GetComponentInChildren<PlayerInventory>();
                 if (inventory != null)
                 {
                     inventory.ItemUsed -= OnItemUsed;

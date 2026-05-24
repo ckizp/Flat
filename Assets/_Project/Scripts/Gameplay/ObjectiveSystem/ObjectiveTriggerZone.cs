@@ -61,7 +61,7 @@ namespace Flat.Gameplay.ObjectiveSystem
         private void OnTriggerEnter(Collider other)
         {
             if (isActivated) return;
-            if (!other.CompareTag("Player")) return;
+            if (!other.CompareTag("Player") && (other.transform.parent == null || !other.transform.parent.CompareTag("Player")) && !other.transform.root.CompareTag("Player")) return;
 
             isActivated = true;
             GameManager.Instance.ObjectiveEvents.StartObjective(objectiveToStart);

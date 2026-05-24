@@ -136,6 +136,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 675784305044643026, guid: 1d9de9ee96c2aac4ea3458b27855f24b, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 675784305044643026, guid: 1d9de9ee96c2aac4ea3458b27855f24b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2169208956835083804, guid: 1d9de9ee96c2aac4ea3458b27855f24b, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -303,6 +311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 2915504a1a96deb458e0bd23e1469918, type: 2}
   grabbable: {fileID: 0}
+  equipPosition: {x: 0, y: 0, z: 0.05}
+  equipEuler: {x: 0, y: 0, z: 0}
 --- !u!1001 &1534092067650984556
 PrefabInstance:
   m_ObjectHideFlags: 0

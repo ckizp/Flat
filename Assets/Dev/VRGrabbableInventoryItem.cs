@@ -23,6 +23,8 @@ public class VRGrabbableInventoryItem : MonoBehaviour
 
     public Item Item => item;
     public bool IsGrabbed => isGrabbed;
+    /// <summary>Set once the item is taken into the belt inventory, so it is not re-collected.</summary>
+    public bool IsCollected { get; set; }
     public Vector3 EquipPosition => equipPosition;
     public Vector3 EquipEuler => equipEuler;
 

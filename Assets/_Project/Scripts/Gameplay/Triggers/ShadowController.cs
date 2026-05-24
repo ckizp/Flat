@@ -51,8 +51,10 @@ namespace Flat.Gameplay.Triggers
         {
             if (isTriggered) return;
 
-            if (other.CompareTag("Player"))
+            // Check root or parent for Player tag to support VR rigs where child colliders hit the trigger
+            if (other.CompareTag("Player") || (other.transform.parent != null && other.transform.parent.CompareTag("Player")) || other.transform.root.CompareTag("Player"))
             {
+                Debug.Log($"[ShadowController] Triggered by {other.gameObject.name} (Root: {other.transform.root.name})");
                 isTriggered = true;
 
                 if (PlayerAnxietyController.Instance != null)
@@ -65,8 +67,13 @@ namespace Flat.Gameplay.Triggers
                     triggerAudio.Play();
                 }
 
-                shadowAnimator.SetFloat(velHash, 10f);
-                GetComponent<Collider>().enabled = false;
+                if (shadowAnimator != null)
+                {
+                    shadowAnimator.SetFloat(velHash, 10f);
+                }
+                
+                var col = GetComponent<Collider>();
+                if (col != null) col.enabled = false;
             }
         }
 
@@ -76,9 +83,16 @@ namespace Flat.Gameplay.Triggers
             
             if (e.InteractionType == targetInteractionType)
             {
-                GetComponent<Collider>().enabled = true;
-                shadow.SetActive(true);
+                Debug.Log($"[ShadowController] Interaction '{e.InteractionType}' received. Enabling shadow.");
+                var col = GetComponent<Collider>();
+                if (col != null) col.enabled = true;
+                
+                if (shadow != null)
+                {
+                    shadow.SetActive(true);
+                    shadowStartPosition = shadow.transform.position; // Reset start position to current
+                }
             }
         }
-    }
+}
 }

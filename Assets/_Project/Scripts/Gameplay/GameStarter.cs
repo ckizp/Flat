@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Flat.Gameplay.Interaction.Interactions;
 using Flat.Gameplay.Inventory;
 using Flat.Gameplay.Inventory.Items;
+using Flat.Gameplay.ObjectiveSystem;
 using Flat.Managers;
 using UnityEngine;
 
@@ -27,6 +28,18 @@ namespace Flat.Gameplay
         {
             yield return new WaitForSeconds(delayBeforePowerOutage);
             yield return StartCoroutine(TriggerPowerOutage());
+
+            // Wait for ObjectiveManager to be ready
+            ObjectiveManager objectiveManager = Object.FindAnyObjectByType<ObjectiveManager>();
+            if (objectiveManager != null)
+            {
+                while (!objectiveManager.IsInitialized)
+                {
+                    yield return null;
+                }
+            }
+
+            Debug.Log("[GameStarter] Starting first objective: Objective_RestoreLights");
             GameManager.Instance.ObjectiveEvents.StartObjective("Objective_RestoreLights");
         }
 
@@ -42,7 +55,7 @@ namespace Flat.Gameplay
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                PlayerInventory playerInventory = player.GetComponent<PlayerInventory>();
+                PlayerInventory playerInventory = player.GetComponentInChildren<PlayerInventory>();
 
                 // Add the flashlight item to the inventory
                 if (playerInventory != null && flashlightItemPrefab != null)

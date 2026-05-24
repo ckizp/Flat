@@ -26,10 +26,12 @@ namespace Flat.Gameplay.ObjectiveSystem.Steps
             // Check interaction type if specified
             bool typeMatches = string.IsNullOrEmpty(targetInteractionType) || e.InteractionType == targetInteractionType;
 
+            Debug.Log($"[InteractionStep] Received interaction: ID='{e.InteractableId}', Type='{e.InteractionType}'. Target: ID='{targetInteractableId}', Type='{targetInteractionType}'. Matches: ID={idMatches}, Type={typeMatches}");
+
             if (idMatches && typeMatches)
             {
                 FinishObjectiveStep();
             }
         }
-    }
+}
 }

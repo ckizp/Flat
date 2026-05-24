@@ -19,10 +19,11 @@ namespace Flat.Gameplay.Interaction.Interactions
             {
                 TriggerInteraction("try_open_entrance_door");
 
+                // The key only needs to be in the inventory (e.g. stored on the belt).
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
                 if (player != null)
                 {
-                    PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+                    PlayerInventory inventory = player.GetComponentInChildren<PlayerInventory>();
                     if (inventory != null && inventory.HasItem(keyItemName))
                     {
                         isLocked = false;
@@ -30,7 +31,7 @@ namespace Flat.Gameplay.Interaction.Interactions
                     }
                 }
             }
-            else if (!isOpen)
+else if (!isOpen)
             {
                 StartCoroutine(Open());
             }
@@ -38,6 +39,24 @@ namespace Flat.Gameplay.Interaction.Interactions
             {
                 StartCoroutine(Close());
             }
+        }
+
+        /// <summary>
+        /// Called when the player uses a key item. Unlocks and opens the door only
+        /// if the key matches. Returns true if this door accepted the key.
+        /// </summary>
+        public bool TryUnlockWithKey(string keyName)
+        {
+            if (isLocked && keyName != keyItemName)
+                return false;
+
+            if (isLocked)
+                isLocked = false;
+
+            if (!isOpen)
+                StartCoroutine(Open());
+
+            return true;
         }
 
         private IEnumerator Open()

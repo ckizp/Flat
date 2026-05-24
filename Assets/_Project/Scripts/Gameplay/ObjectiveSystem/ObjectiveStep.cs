@@ -22,9 +22,17 @@ namespace Flat.Gameplay.ObjectiveSystem
             if (!isFinished)
             {
                 isFinished = true;
-                GameManager.Instance.ObjectiveEvents.AdvanceObjective(objectiveId);
+                Debug.Log($"[ObjectiveStep] Finishing step '{stepDescription}' for objective '{objectiveId}'");
+                if (GameManager.Instance != null && GameManager.Instance.ObjectiveEvents != null)
+                {
+                    GameManager.Instance.ObjectiveEvents.AdvanceObjective(objectiveId);
+                }
+                else
+                {
+                    Debug.LogError($"[ObjectiveStep] GameManager or ObjectiveEvents is NULL when trying to finish step!");
+                }
                 Destroy(this.gameObject);
             }
         }
-    }
+}
 }

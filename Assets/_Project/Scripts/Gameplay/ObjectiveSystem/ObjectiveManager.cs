@@ -45,16 +45,19 @@ namespace Flat.Gameplay.ObjectiveSystem
         {
             yield return StartCoroutine(LoadObjectives());
 
-            if (GameManager.Instance != null)
+            // Wait for GameManager to be ready
+            while (GameManager.Instance == null)
             {
-                GameManager.Instance.ObjectiveEvents.OnStartObjective += StartObjective;
-                GameManager.Instance.ObjectiveEvents.OnAdvanceObjective += AdvanceObjective;
-                GameManager.Instance.ObjectiveEvents.OnFinishObjective += FinishObjective;
+                yield return null;
+            }
 
-                foreach (Objective objective in objectiveMap.Values)
-                {
-                    GameManager.Instance.ObjectiveEvents.UpdateObjectiveState(objective);
-                }
+            GameManager.Instance.ObjectiveEvents.OnStartObjective += StartObjective;
+            GameManager.Instance.ObjectiveEvents.OnAdvanceObjective += AdvanceObjective;
+            GameManager.Instance.ObjectiveEvents.OnFinishObjective += FinishObjective;
+
+            foreach (Objective objective in objectiveMap.Values)
+            {
+                GameManager.Instance.ObjectiveEvents.UpdateObjectiveState(objective);
             }
 
             isInitialized = true;
@@ -82,8 +85,13 @@ namespace Flat.Gameplay.ObjectiveSystem
 
         private void AdvanceObjective(string id)
         {
+            Debug.Log($"[ObjectiveManager] Advancing objective: {id}");
             Objective objective = GetObjectiveById(id);
-            if (objective == null) return;
+            if (objective == null)
+            {
+                Debug.LogWarning($"[ObjectiveManager] Objective '{id}' not found!");
+                return;
+            }
 
             // Move on to the next step
             objective.MoveToNextStep();
@@ -91,11 +99,13 @@ namespace Flat.Gameplay.ObjectiveSystem
             // If there are more steps, instantiate the next one
             if (objective.CurrentStepExists())
             {
+                Debug.Log($"[ObjectiveManager] Instantiating next step for {id}");
                 objective.InstantiateCurrentObjectiveStep(this.transform);
                 GameManager.Instance.ObjectiveEvents.UpdateObjectiveState(objective);
             }
             else
             {
+                Debug.Log($"[ObjectiveManager] No more steps for {id}. Finishing objective.");
                 FinishObjective(objective.info.Id);
             }
         }
@@ -121,11 +131,18 @@ namespace Flat.Gameplay.ObjectiveSystem
             {
                 foreach (var objectiveInfo in handle.Result)
                 {
-                    objectiveMap.Add(objectiveInfo.Id, new Objective(objectiveInfo));
-                    Debug.Log($"Loaded objective: {objectiveInfo.displayName} (ID: {objectiveInfo.Id})");
+                    if (!objectiveMap.ContainsKey(objectiveInfo.Id))
+                    {
+                        objectiveMap.Add(objectiveInfo.Id, new Objective(objectiveInfo));
+                        Debug.Log($"Loaded objective: {objectiveInfo.displayName} (ID: {objectiveInfo.Id})");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[ObjectiveManager] Duplicate objective ID found: {objectiveInfo.Id}. Skipping.");
+                    }
                 }
             }
-            else
+else
             {
                 Debug.LogError($"Failed to load objectives for act: {label}");
             }

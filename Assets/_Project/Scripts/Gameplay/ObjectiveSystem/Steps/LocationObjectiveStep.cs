@@ -37,10 +37,10 @@ namespace Flat.Gameplay.ObjectiveSystem.Steps
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") || (other.transform.parent != null && other.transform.parent.CompareTag("Player")) || other.transform.root.CompareTag("Player"))
             {
                 FinishObjectiveStep();
             }
         }
-    }
+}
 }

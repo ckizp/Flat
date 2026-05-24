@@ -128,6 +128,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9159541282209887598, guid: 2a54b78eced40e74db39ff12257d5702, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159541282209887598, guid: 2a54b78eced40e74db39ff12257d5702, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5751095217352582384, guid: 2a54b78eced40e74db39ff12257d5702, type: 3}
     m_RemovedGameObjects:
@@ -159,8 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4eb4534707acc48b935a889571fe13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: f482a6bdfd44df643969219154afd5bd, type: 2}
+  item: {fileID: 11400000, guid: 040ef34d77e74410384da309c4f9761b, type: 2}
   grabbable: {fileID: 0}
+  equipPosition: {x: 0, y: 0, z: 0.05}
+  equipEuler: {x: 0, y: 0, z: 0}
 --- !u!4 &4405103522353050427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4416059922495883002, guid: 2a54b78eced40e74db39ff12257d5702, type: 3}

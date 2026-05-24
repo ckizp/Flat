@@ -28,6 +28,7 @@ namespace Flat.Gameplay.Interaction.Interactions
         {
             animator.Play(openingAnimationName);
             IsOpen = true;
+            TriggerInteraction("open");
             yield return new WaitForSeconds(.5f);
         }
 
@@ -35,7 +36,8 @@ namespace Flat.Gameplay.Interaction.Interactions
         {
             animator.Play(closingAnimationName);
             IsOpen = false;
+            TriggerInteraction("close");
             yield return new WaitForSeconds(.5f);
         }
-    }
+}
 }

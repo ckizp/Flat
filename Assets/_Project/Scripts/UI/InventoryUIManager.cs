@@ -22,10 +22,10 @@ namespace Flat.UI
 
             if (player != null)
             {
-                playerInventory = player.GetComponent<PlayerInventory>();
+                playerInventory = player.GetComponentInChildren<PlayerInventory>();
                 if (playerInventory == null)
                 {
-                    Debug.LogError("Player doesn't have an Inventory component!");
+                    Debug.LogError("Player doesn't have an Inventory component in children!");
                     return;
                 }
 
