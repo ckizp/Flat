@@ -19,11 +19,19 @@ public class VRRigMovementController : MonoBehaviour
     [Header("Gravity")]
     [SerializeField] private float gravity = -9.81f;
 
+    [Header("Turning (right stick, snap = comfort)")]
+    [Tooltip("Degrees per snap turn.")]
+    [SerializeField] private float snapAngle = 30f;
+    [Tooltip("Stick push needed to trigger a snap turn.")]
+    [SerializeField] private float turnThreshold = 0.7f;
+
     private CharacterController characterController;
     private float verticalVelocity;
     private Vector3 horizontalVelocity;
+    private bool turnReady = true;
 
     private readonly List<InputDevice> controllers = new List<InputDevice>();
+    private readonly List<InputDevice> rightControllers = new List<InputDevice>();
 
     private void Awake()
     {
@@ -33,6 +41,30 @@ public class VRRigMovementController : MonoBehaviour
     private void Update()
     {
         Move();
+        HandleSnapTurn();
+    }
+
+    /// <summary>Snap-rotates the rig with the right thumbstick (comfort turning).</summary>
+    private void HandleSnapTurn()
+    {
+        float x = 0f;
+        InputDevices.GetDevicesWithCharacteristics(
+            InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Right, rightControllers);
+        foreach (var device in rightControllers)
+            if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 axis))
+                x = axis.x;
+
+        if (turnReady && Mathf.Abs(x) > turnThreshold)
+        {
+            float angle = Mathf.Sign(x) * snapAngle;
+            Vector3 pivot = xrCamera != null ? xrCamera.position : transform.position;
+            transform.RotateAround(pivot, Vector3.up, angle);
+            turnReady = false;
+        }
+        else if (Mathf.Abs(x) < 0.3f)
+        {
+            turnReady = true;
+        }
     }
 
     private void Move()
