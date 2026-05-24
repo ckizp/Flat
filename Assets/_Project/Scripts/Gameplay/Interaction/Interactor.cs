@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Flat.Managers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace Flat.Gameplay.Interaction
 {
@@ -115,7 +117,7 @@ namespace Flat.Gameplay.Interaction
             switch (currentFocus.InteractionType)
             {
                 case InteractionType.Instant:
-                    if (inputManager.Interact)
+                    if (IsInteractPressed())
                     {
                         if (!hasInteracted) // Only interact if we haven't already
                         {
@@ -129,7 +131,7 @@ namespace Flat.Gameplay.Interaction
                     }
                     break;
                 case InteractionType.Hold:
-                    if (inputManager.Interact)
+                    if (IsInteractPressed())
                     {
                         if (!isHolding)
                         {
@@ -158,6 +160,28 @@ namespace Flat.Gameplay.Interaction
                     }
                     break;
             }
+        }
+
+        private readonly List<InputDevice> rightControllers = new List<InputDevice>();
+
+        /// <summary>
+        /// Interact is pressed if the Input System action fires OR the right
+        /// controller's index trigger is pressed (read via XR InputDevices, the
+        /// reliable OpenXR path on the Meta rig).
+        /// </summary>
+        private bool IsInteractPressed()
+        {
+            if (inputManager != null && inputManager.Interact)
+                return true;
+
+            InputDevices.GetDevicesWithCharacteristics(
+                InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Right, rightControllers);
+            foreach (var device in rightControllers)
+            {
+                if (device.TryGetFeatureValue(CommonUsages.triggerButton, out bool pressed) && pressed)
+                    return true;
+            }
+            return false;
         }
 
         private void ExecuteInteraction(IInteractable interactable)

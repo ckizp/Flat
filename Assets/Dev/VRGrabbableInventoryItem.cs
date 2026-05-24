@@ -1,76 +1,61 @@
 using Flat.Gameplay.Inventory;
+using Oculus.Interaction;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
+/// <summary>
+/// Marks a Meta-grabbable world object as collectable into the belt inventory.
+/// Only tracks the linked <see cref="Item"/> and whether a hand is currently
+/// holding it (via the Meta <see cref="Grabbable"/> events). The actual
+/// collect / equip / use flow is handled by <see cref="VRInventoryController"/>.
+/// </summary>
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable))]
 public class VRGrabbableInventoryItem : MonoBehaviour
 {
     [SerializeField] private Item item;
+    [Tooltip("Meta Grabbable driving this item. Auto-found if left empty.")]
+    [SerializeField] private Grabbable grabbable;
 
-    private Rigidbody rb;
-    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;
-    private VRBeltSlot currentSlot;
+    [Header("Equip pose (how it sits in the inventory hand)")]
+    [SerializeField] private Vector3 equipPosition = new Vector3(0f, 0f, 0.05f);
+    [SerializeField] private Vector3 equipEuler = Vector3.zero;
+
+    private bool isGrabbed;
 
     public Item Item => item;
-    public bool IsInBelt => currentSlot != null;
+    public bool IsGrabbed => isGrabbed;
+    public Vector3 EquipPosition => equipPosition;
+    public Vector3 EquipEuler => equipEuler;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
-
-        grabInteractable.selectEntered.AddListener(OnGrabbed);
-        grabInteractable.selectExited.AddListener(OnReleased);
+        if (grabbable == null)
+            grabbable = GetComponentInChildren<Grabbable>();
     }
 
-    private void OnDestroy()
+    private void OnEnable()
     {
-        if (grabInteractable != null)
+        if (grabbable != null)
+            grabbable.WhenPointerEventRaised += HandlePointerEvent;
+    }
+
+    private void OnDisable()
+    {
+        if (grabbable != null)
+            grabbable.WhenPointerEventRaised -= HandlePointerEvent;
+        isGrabbed = false;
+    }
+
+    private void HandlePointerEvent(PointerEvent evt)
+    {
+        switch (evt.Type)
         {
-            grabInteractable.selectEntered.RemoveListener(OnGrabbed);
-            grabInteractable.selectExited.RemoveListener(OnReleased);
+            case PointerEventType.Select:
+                isGrabbed = true;
+                break;
+            case PointerEventType.Unselect:
+            case PointerEventType.Cancel:
+                isGrabbed = false;
+                break;
         }
-    }
-
-    private void OnGrabbed(SelectEnterEventArgs args)
-    {
-        if (currentSlot != null)
-        {
-            currentSlot.RemoveItemFromSlot(this);
-            currentSlot = null;
-        }
-
-        rb.isKinematic = false;
-        rb.useGravity = true;
-    }
-
-    private void OnReleased(SelectExitEventArgs args)
-    {
-        rb.isKinematic = false;
-        rb.useGravity = true;
-    }
-
-    public void SnapToSlot(VRBeltSlot slot, Transform slotAnchor)
-    {
-        currentSlot = slot;
-
-        rb.isKinematic = true;
-        rb.useGravity = false;
-
-        transform.SetParent(slotAnchor);
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
-    }
-
-    public void DetachFromSlot()
-    {
-        currentSlot = null;
-
-        transform.SetParent(null);
-
-        rb.isKinematic = false;
-        rb.useGravity = true;
     }
 }
